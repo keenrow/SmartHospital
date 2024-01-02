@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+    <script>
+        function searchDoctors() {
+            // Get the department entered by the user
+            var department = document.getElementById("department").value;
+
+        
+            var doctorsData = {
+                1: ["Dr Rafia", "Dr Aisha", "Dr Careen"],
+                2: ["Dr John", "Dr Emily", "Dr Michael"]
+              
+            };
+
+            // Display the doctor information
+            var infoDiv = document.getElementById("info");
+            infoDiv.innerHTML = "<h4>Doctors in the " + department + " department:</h4>";
+
+            var doctorsList = document.createElement("ul");
+            doctorsData[department].forEach(function(doctor) {
+                var listItem = document.createElement("li");
+                listItem.textContent = doctor;
+                doctorsList.appendChild(listItem);
+            });
+
+            infoDiv.appendChild(doctorsList);
+        }
+    </script>
+</head>
+<body style="background-image:url(/images/smart5.jpg);">
+    <div class="container">
+        <b>SMART HOSPITAL APPOINTMENT SCHEDULING AND <br>MANAGEMENT TOOL</b>
+        <div class="header" style="font-size: 15px;"><b> Welcome! You may book time with our doctors for free</b></div>
+        <div id="mine"></div>
+        <div class="appointmentbody">
+            <h6 style="padding: 2%;">MAKE AN APPOINTMENT WITH US</h6>
+            <div>
+                <form action="" method="post">
+                    <label for="department" style="text-shadow: 0 3px gray; font-size: larger;">DEPARTMENT NAME:</label>
+                    <input type="text" id="department" name="department" placeholder="DEPARTMENT NAME">
+                    <button type="button" onclick="searchDoctors()">Search</button>
+                </form>
+            </div>
+            <div id="info"></div>
+        </div>
+    </div>
+</body>
+</html>
